@@ -1,0 +1,140 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+
+    "margin-top": 10,
+    "margin-right": 10,
+    "margin-bottom": 0,
+    "margin-left": 10,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpd"
+    ],
+
+    "modules-center": [
+        "custom/timeweather"
+    ],
+
+    "modules-right": [
+        "tray",
+		
+        "cpu_text",
+        "cpu",
+        "memory",
+        "battery",
+        "network",
+        "pulseaudio",
+  ],
+
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "tooltip": false
+    },
+
+
+    "mpd": {
+        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S})",
+        "format-disconnected": "🔇 MPD Off",
+        "format-paused": "⏸ {artist} - {title} ({elapsedTime:%M:%S})",
+        "format-stopped": "⏹ Stopped",
+        "state-icons": {
+            "paused": "⏸",
+            "playing": "▶"
+        },
+        "tooltip-format": "
+<b>MPD</b>
+<b>Artist:</b> {artist}
+<b>Title:</b> {title} 
+<b>Album:</b> {album}
+<b>Elapsed:</b> {elapsedTime} / {totalTime}",
+        "on-click": "mpc toggle",
+        "on-click-right": "mpc next",
+        "on-click-middle": "alacritty -e ncmpcpp",
+        "on-scroll-up": "mpc volume +5",
+        "on-scroll-down": "mpc volume -5",
+        "interval": 1,
+        "connection-timeout": 5
+    },
+
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "custom/timeweather": {
+        "exec": "~/.config/waybar/scripts/time_weather_openmeteo.sh",
+        "interval": 60,
+        "on-click": "~/.config/waybar/scripts/time_weather_openmeteo.sh toggle",
+        "format": "{}",
+        "tooltip": false
+    },
+
+
+    "cpu": {
+        "format": "cpu {usage}%",
+        "interval": 2,
+
+        "states": {
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "format": "mem {percentage}%",
+        "interval": 2,
+
+        "states": {
+            "critical": 80
+        }
+    },
+
+    "battery": {
+        "format": "bat {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi" : "wifi {bandwidthDownBits}",
+        "format-ethernet": "enth {bandwidthDownBits}",
+        "format-disconnected" : "no network",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "vol {volume}%",
+        "format-bluetooth": "vol {volume}%",
+        "nospacing": 1,
+        "on-click": "pavuvolume",
+        "tooltip": false
+    },
+
+	"hyprland/language": {
+		"format": "{short}",
+	},
+
+	"custom/control":{
+        "format": " ",
+        "on-click": "control",
+        "on-click-right": "killall control",
+        "tooltip": false
+    },
+ }
+}
